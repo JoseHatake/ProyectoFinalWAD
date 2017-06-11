@@ -6,23 +6,23 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class MetodoId implements Serializable {
+public class ParametroId implements Serializable{
 	/**
-	 * 
-	 */
+	 *
+	 **/
 	private static final long serialVersionUID = 1L;
-
-	@Column(name = "id_clase", nullable = false)
+	
+	@Column(name = "id_clase")
 	private Integer idClase;
-
-	@Column(name = "id_metodo", nullable = false)
+	
+	@Column(name = "id_metodo")
 	private Integer idMetodo;
 	
-	public MetodoId() {
+	public ParametroId() {
 		super();
 	}
 	
-	public MetodoId(Integer idClase, Integer idMetodo) {
+	public ParametroId(Integer idClase, Integer idMetodo) {
 		super();
 		this.idClase = idClase;
 		this.idMetodo = idMetodo;
