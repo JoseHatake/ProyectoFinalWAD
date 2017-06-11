@@ -29,8 +29,7 @@ public class Empresa {
 	}
 
 	/**
-	 * @param id
-	 *            the id to set
+	 * @param id the id to set
 	 */
 	public void setId(Integer id) {
 		this.id = id;
@@ -44,8 +43,7 @@ public class Empresa {
 	}
 
 	/**
-	 * @param nombre
-	 *            the nombre to set
+	 * @param nombre the nombre to set
 	 */
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
@@ -59,8 +57,7 @@ public class Empresa {
 	}
 
 	/**
-	 * @param rfc
-	 *            the rfc to set
+	 * @param rfc the rfc to set
 	 */
 	public void setRfc(String rfc) {
 		this.rfc = rfc;

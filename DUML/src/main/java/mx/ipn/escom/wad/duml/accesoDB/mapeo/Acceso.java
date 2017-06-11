@@ -14,4 +14,32 @@ public class Acceso {
 
 	@Column(name = "nb_acceso")
 	private Integer nombre;
+
+	/**
+	 * @return the id
+	 */
+	public Integer getId() {
+		return id;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	/**
+	 * @return the nombre
+	 */
+	public Integer getNombre() {
+		return nombre;
+	}
+
+	/**
+	 * @param nombre the nombre to set
+	 */
+	public void setNombre(Integer nombre) {
+		this.nombre = nombre;
+	}
 }
