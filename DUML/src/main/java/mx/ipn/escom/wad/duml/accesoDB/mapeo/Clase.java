@@ -14,7 +14,7 @@ import javax.persistence.Table;
 @Table(name = "clase")
 @Inheritance(strategy = InheritanceType.JOINED)
 @PrimaryKeyJoinColumn(name = "id_clase", referencedColumnName = "id_tipo")
-public class Clase {
+public class Clase extends TipoDato{
 	@Column(name = "id_diagrama")
 	private Integer idDiagrama;
 	

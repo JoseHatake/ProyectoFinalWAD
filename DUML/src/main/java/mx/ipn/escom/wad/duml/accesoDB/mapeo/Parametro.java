@@ -13,39 +13,41 @@ import javax.persistence.Table;
 public class Parametro {
 	@EmbeddedId
 	private ParametroId id;
-	
-	@Column(name = "id_parametro")
+
+	@Column(name = "id_parametro", insertable = false, updatable = false)
 	private Integer idParametro;
-	
-	@Column(name = "id_clase")
+
+	@Column(name = "id_clase", insertable = false, updatable = false)
 	private Integer idClase;
-	
-	@Column(name = "id_metodo")
+
+	@Column(name = "id_metodo", insertable = false, updatable = false)
 	private Integer idMetodo;
-	
+
 	@Column(name = "id_tipo_dato")
 	private Integer idTipo;
-	
+
 	@Column(name = "nb_parametro")
 	private String nombre;
-	
+
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_metodo", referencedColumnName = "id_metodo", insertable = false, updatable = false)
 	private Metodo metodoObj;
-	
+
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_tipo_dato", referencedColumnName = "id_tipo", insertable = false, updatable = false)
 	private TipoDato tipoDatoObj;
-	
+
 	public Parametro() {
 		super();
 	}
-	
-	public Parametro(Integer idClase, Integer idMetodo) {
+
+	public Parametro(Integer idClase, Integer idMetodo, Integer idParametro, Integer idTipo, String nombre) {
 		super();
-		this.id = new ParametroId(idClase,idMetodo);
+		this.id = new ParametroId(idClase, idMetodo, idParametro);
 		this.idClase = idClase;
 		this.idMetodo = idMetodo;
+		this.idTipo = idTipo;
+		this.nombre = nombre;
 	}
 
 	/**
@@ -56,7 +58,8 @@ public class Parametro {
 	}
 
 	/**
-	 * @param id the id to set
+	 * @param id
+	 *            the id to set
 	 */
 	public void setId(ParametroId id) {
 		this.id = id;
@@ -70,7 +73,8 @@ public class Parametro {
 	}
 
 	/**
-	 * @param idParametro the idParametro to set
+	 * @param idParametro
+	 *            the idParametro to set
 	 */
 	public void setIdParametro(Integer idParametro) {
 		this.idParametro = idParametro;
@@ -84,7 +88,8 @@ public class Parametro {
 	}
 
 	/**
-	 * @param idClase the idClase to set
+	 * @param idClase
+	 *            the idClase to set
 	 */
 	public void setIdClase(Integer idClase) {
 		this.idClase = idClase;
@@ -98,7 +103,8 @@ public class Parametro {
 	}
 
 	/**
-	 * @param idMetodo the idMetodo to set
+	 * @param idMetodo
+	 *            the idMetodo to set
 	 */
 	public void setIdMetodo(Integer idMetodo) {
 		this.idMetodo = idMetodo;
@@ -112,7 +118,8 @@ public class Parametro {
 	}
 
 	/**
-	 * @param idTipo the idTipo to set
+	 * @param idTipo
+	 *            the idTipo to set
 	 */
 	public void setIdTipo(Integer idTipo) {
 		this.idTipo = idTipo;
@@ -126,7 +133,8 @@ public class Parametro {
 	}
 
 	/**
-	 * @param nombre the nombre to set
+	 * @param nombre
+	 *            the nombre to set
 	 */
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
@@ -140,7 +148,8 @@ public class Parametro {
 	}
 
 	/**
-	 * @param metodoObj the metodoObj to set
+	 * @param metodoObj
+	 *            the metodoObj to set
 	 */
 	public void setMetodoObj(Metodo metodoObj) {
 		this.metodoObj = metodoObj;
@@ -154,7 +163,8 @@ public class Parametro {
 	}
 
 	/**
-	 * @param tipoDatoObj the tipoDatoObj to set
+	 * @param tipoDatoObj
+	 *            the tipoDatoObj to set
 	 */
 	public void setTipoDatoObj(TipoDato tipoDatoObj) {
 		this.tipoDatoObj = tipoDatoObj;

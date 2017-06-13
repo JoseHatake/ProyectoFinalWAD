@@ -1,8 +1,10 @@
 package mx.ipn.escom.wad.duml.accesoDB.mapeo;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 
-public class AtributoId {
+public class AtributoId implements Serializable{
 	@Column(name = "id_clase", nullable = false)
 	private Integer idClase;
 

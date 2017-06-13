@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -27,20 +29,28 @@ public class Diagrama {
 
 	@Column(name = "tx_path")
 	private String path;
-	
-	@Embedded
-	private EmpresaUsuario empresaUsuarioObj;
-	
-	public Diagrama(){
+
+	@ManyToOne
+	@JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario", insertable = false, updatable = false)
+	private Usuario usuario;
+
+	@ManyToOne
+	@JoinColumn(name = "id_empresa", referencedColumnName = "id_empresa", insertable = false, updatable = false)
+	private Empresa empresa;
+
+	public Diagrama() {
 		super();
 	}
-	
-	public Diagrama(Integer idEmpresa, Integer idUsuario) {
+
+	public Diagrama(Integer idEmpresa, Integer idUsuario, Integer nombre, String path) {
 		super();
-		this.empresaUsuarioObj = new EmpresaUsuario(idEmpresa, idUsuario);
 		this.idEmpresa = idEmpresa;
 		this.idUsuario = idUsuario;
+		this.nombre = nombre;
+		this.path = path;
 	}
+
+
 
 	/**
 	 * @return the id
@@ -50,7 +60,8 @@ public class Diagrama {
 	}
 
 	/**
-	 * @param id the id to set
+	 * @param id
+	 *            the id to set
 	 */
 	public void setId(Integer id) {
 		this.id = id;
@@ -64,7 +75,8 @@ public class Diagrama {
 	}
 
 	/**
-	 * @param idEmpresa the idEmpresa to set
+	 * @param idEmpresa
+	 *            the idEmpresa to set
 	 */
 	public void setIdEmpresa(Integer idEmpresa) {
 		this.idEmpresa = idEmpresa;
@@ -78,7 +90,8 @@ public class Diagrama {
 	}
 
 	/**
-	 * @param idUsuario the idUsuario to set
+	 * @param idUsuario
+	 *            the idUsuario to set
 	 */
 	public void setIdUsuario(Integer idUsuario) {
 		this.idUsuario = idUsuario;
@@ -92,7 +105,8 @@ public class Diagrama {
 	}
 
 	/**
-	 * @param nombre the nombre to set
+	 * @param nombre
+	 *            the nombre to set
 	 */
 	public void setNombre(Integer nombre) {
 		this.nombre = nombre;
@@ -106,23 +120,26 @@ public class Diagrama {
 	}
 
 	/**
-	 * @param path the path to set
+	 * @param path
+	 *            the path to set
 	 */
 	public void setPath(String path) {
 		this.path = path;
 	}
 
-	/**
-	 * @return the empresaUsuarioObj
-	 */
-	public EmpresaUsuario getEmpresaUsuarioObj() {
-		return empresaUsuarioObj;
+	public Usuario getUsuario() {
+		return usuario;
 	}
 
-	/**
-	 * @param empresaUsuarioObj the empresaUsuarioObj to set
-	 */
-	public void setEmpresaUsuarioObj(EmpresaUsuario empresaUsuarioObj) {
-		this.empresaUsuarioObj = empresaUsuarioObj;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	public Empresa getEmpresa() {
+		return empresa;
+	}
+
+	public void setEmpresa(Empresa empresa) {
+		this.empresa = empresa;
 	}
 }
