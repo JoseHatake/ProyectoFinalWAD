@@ -74,6 +74,12 @@
 		<servlet-class>mx.ipn.escom.wad.duml.servlets.LogoutCtrl</servlet-class>
 	</servlet>
 	
+	<!-- Controla el registro -->
+	<servlet>
+		<servlet-name>RegistroCtrl</servlet-name>
+		<servlet-class>mx.ipn.escom.wad.duml.servlets.RegistroCtrl</servlet-class>
+	</servlet>
+	
 	<!-- Mapeo para ejecutar el inicio de sesión -->
 	<servlet-mapping>
 		<servlet-name>LoginCtrl</servlet-name>
@@ -84,6 +90,12 @@
 	<servlet-mapping>
 		<servlet-name>LogoutCtrl</servlet-name>
 		<url-pattern>/Logout.do</url-pattern>
+	</servlet-mapping>
+
+	<!-- Mapeo para ejecutar el registro -->
+	<servlet-mapping>
+		<servlet-name>RegistroCtrl</servlet-name>
+		<url-pattern>/Registro.do</url-pattern>
 	</servlet-mapping>
 
 	<!-- Listener que crea el contexto necesario una vez que se ejecuta la aplicación 
