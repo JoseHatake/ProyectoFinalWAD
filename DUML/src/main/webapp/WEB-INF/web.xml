@@ -33,12 +33,59 @@
 			<param-value>false</param-value>
 		</init-param>
 	</filter>
+
+	<!-- Filtra las peticiones para asegurarse que han iniciado sesión, en caso 
+		de no tener los parámetros solicitados entonces redirige a login. Para excluir 
+		páginas se puede usar un mapeo de filtro o simplemente se pueden agregar 
+		a la lista del parametro excluir, separadas por coma y relativas al la ruta 
+		con contexto. Se excluyen automáticamente Login.jsp y Login.do (para iniciar 
+		sesión) -->
+	<filter>
+		<filter-name>FiltroSesion</filter-name>
+		<filter-class>mx.ipn.escom.wad.duml.filters.FiltroSesion</filter-class>
+		<init-param>
+			<param-name>excluir</param-name>
+			<param-value>/Registro.jsp,/Registro.do</param-value>
+		</init-param>
+	</filter>
+
 	<!-- Se mapea el filtro que permite abrir sesiones durante una petición 
 		para obtener que no son cargados mediante el dao -->
 	<filter-mapping>
 		<filter-name>openSessionInViewFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
+
+	<!-- Se mapea el filtro de sesiones -->
+	<filter-mapping>
+		<filter-name>FiltroSesion</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<!-- Controla el inicio de sesión -->
+	<servlet>
+		<servlet-name>LoginCtrl</servlet-name>
+		<servlet-class>mx.ipn.escom.wad.duml.servlets.LoginCtrl</servlet-class>
+	</servlet>
+	
+	<!-- Controla la finalización de sesión -->
+	<servlet>
+		<servlet-name>LogoutCtrl</servlet-name>
+		<servlet-class>mx.ipn.escom.wad.duml.servlets.LogoutCtrl</servlet-class>
+	</servlet>
+	
+	<!-- Mapeo para ejecutar el inicio de sesión -->
+	<servlet-mapping>
+		<servlet-name>LoginCtrl</servlet-name>
+		<url-pattern>/Login.do</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Mapeo para ejecutar el cierre de sesión -->
+	<servlet-mapping>
+		<servlet-name>LogoutCtrl</servlet-name>
+		<url-pattern>/Logout.do</url-pattern>
+	</servlet-mapping>
+
 	<!-- Listener que crea el contexto necesario una vez que se ejecuta la aplicación 
 		web, lee y parsea el context-param definido en este mismo archivo -->
 	<session-config>
