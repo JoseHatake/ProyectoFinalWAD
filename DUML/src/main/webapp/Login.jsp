@@ -24,5 +24,8 @@
 		<input type="password" placeholder="Contraseña" name="clave">
 		<button type="submit">Ingresar</button>
 	</form>
+	
+	<br>
+	<a href="<%= request.getContextPath() %>/Registro.jsp">Registro</a>
 </body>
 </html>
