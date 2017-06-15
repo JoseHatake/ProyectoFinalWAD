@@ -1,7 +1,6 @@
 package mx.ipn.escom.wad.duml.accesoDB.mapeo;
 
 import javax.persistence.Column;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

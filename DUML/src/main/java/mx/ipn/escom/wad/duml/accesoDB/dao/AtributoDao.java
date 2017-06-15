@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 import mx.ipn.escom.wad.duml.accesoDB.mapeo.Atributo;
+import mx.ipn.escom.wad.duml.accesoDB.mapeo.AtributoId;
 
 @Service("atributoDao")
 @Scope(value = BeanDefinition.SCOPE_SINGLETON)
@@ -25,12 +26,26 @@ public class AtributoDao {
 		return atributo;
 	}
 	
-	public void delete(Integer id){
+	public void delete(AtributoId id){
 		Atributo atributo = this.findById(id);
 		sessionFactory.getCurrentSession().delete(atributo);
 	}
 	
-	public Atributo findById(Integer id){
+	public Atributo findById(AtributoId id){
 		return sessionFactory.getCurrentSession().load(Atributo.class, id);
+	}
+
+	/**
+	 * @return the sessionFactory
+	 */
+	public SessionFactory getSessionFactory() {
+		return sessionFactory;
+	}
+
+	/**
+	 * @param sessionFactory the sessionFactory to set
+	 */
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
 	}
 }

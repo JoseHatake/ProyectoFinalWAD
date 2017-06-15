@@ -5,6 +5,11 @@ import java.io.Serializable;
 import javax.persistence.Column;
 
 public class AtributoId implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Column(name = "id_clase", nullable = false)
 	private Integer idClase;
 
