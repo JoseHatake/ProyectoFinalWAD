@@ -36,6 +36,9 @@
 					0
 				</prop>
 				<!-- <prop key="hibernate.current_session_context_class">org.springframework.orm.hibernate5.SpringSessionContext</prop>  -->
+				
+				<!-- Dejar a MySQL generar los IDs -->
+				<prop key="hibernate.id.new_generator_mappings">false</prop>
 			</props>
 		</property>
 
