@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!-- Define los parámetros para la creación de la instancia de la fábrica 
 	de sesiones para Hibernate -->
 <beans xmlns="http://www.springframework.org/schema/beans"
