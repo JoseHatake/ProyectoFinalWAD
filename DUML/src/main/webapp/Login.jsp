@@ -7,11 +7,16 @@
 <title>DUML - Login</title>
 <% String red = request.getParameter("r"); %>
 <% String err = request.getParameter("e"); %>
+<% String msg = request.getParameter("m"); %>
 </head>
 <body>
 	<h1>Iniciar sesión</h1>
 	<% if (err != null) { %> 
 		<p style="color: red;"><%= err %></p>
+	<% } %>
+	
+	<% if (msg != null) { %> 
+		<p style="color: blue;"><%= msg %></p>
 	<% } %>
 	<form method="post" action="<%= request.getContextPath() %>/Login.do">
 		<input type="hidden" name="redirigir_a" value="<%= red == null ? (request.getContextPath() + "/") : red %>">
