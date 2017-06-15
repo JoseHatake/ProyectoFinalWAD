@@ -29,5 +29,8 @@
 			type="text" placeholder="Segundo Apellido" name="segundo_ap">
 		<button type="submit">Registrarme</button>
 	</form>
+	
+	<br>
+	<a href="<%=request.getContextPath()%>/Login.jsp">Login</a>
 </body>
 </html>
