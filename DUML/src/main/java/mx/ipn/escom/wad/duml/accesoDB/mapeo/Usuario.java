@@ -21,7 +21,7 @@ public class Usuario {
 	@Column(name = "tx_password")
 	private String password;
 
-	@Column(name = "nb_usuario")
+	@Column(name = "tx_nombre")
 	private String nombre;
 
 	@Column(name = "tx_primer_ap")
