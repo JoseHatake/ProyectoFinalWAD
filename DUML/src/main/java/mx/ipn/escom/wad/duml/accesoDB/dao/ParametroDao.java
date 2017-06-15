@@ -5,10 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
-
-
-import mx.ipn.escom.wad.duml.accesoDB.mapeo.MetodoId;
 import mx.ipn.escom.wad.duml.accesoDB.mapeo.Parametro;
+import mx.ipn.escom.wad.duml.accesoDB.mapeo.ParametroId;
 
 @Service("parametroDao")
 @Scope(value = BeanDefinition.SCOPE_SINGLETON)
@@ -28,12 +26,12 @@ public class ParametroDao {
 		return parametro;
 	}
 	
-	public void delete(MetodoId id){
-		Parametro parametro = this.findDyId(id);
+	public void delete(ParametroId id){
+		Parametro parametro = this.findById(id);
 		sessionFactory.getCurrentSession().delete(parametro);
 	}
 	
-	public Parametro findDyId(MetodoId id){
+	public Parametro findById(ParametroId id){
 		return sessionFactory.getCurrentSession().load(Parametro.class, id);
 	}
 	

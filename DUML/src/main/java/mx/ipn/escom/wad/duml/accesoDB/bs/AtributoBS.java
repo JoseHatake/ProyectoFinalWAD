@@ -21,13 +21,44 @@ public class AtributoBS {
 		return atributoDao.save(atributo);
 	}
 	
+	@Transactional(rollbackFor = Exception.class)
 	public Atributo update(Atributo atributo){
 		Atributo model = this.findById(atributo.getId());
-		model.set
+		model.setIdClase(atributo.getId().getIdClase());
+		model.setIdAtributo(atributo.getId().getIdAtributo());
+		model.setIdAcceso(atributo.getIdAcceso());
+		model.setIdAlcance(atributo.getIdAlcance());
+		model.setTipo(atributo.getTipo());
+		model.setNombre(atributo.getNombre());
+		model.setValor(atributo.getValor());
+		model.setAccesoObj(atributo.getAccesoObj());
+		model.setAlcanceObj(atributo.getAlcanceObj());
+		model.setTipoObj(atributo.getTipoObj());
+		model.setClaseObj(atributo.getClaseObj());
+		return atributoDao.update(model);
+	}
+	
+	@Transactional(rollbackFor = Exception.class)
+	public void delete(AtributoId id){
+		atributoDao.delete(id);
 	}
 	
 	@Transactional(readOnly = true)
 	public Atributo findById(AtributoId id){
 		return atributoDao.findById(id);
+	}
+
+	/**
+	 * @return the atributoDao
+	 */
+	public AtributoDao getAtributoDao() {
+		return atributoDao;
+	}
+
+	/**
+	 * @param atributoDao the atributoDao to set
+	 */
+	public void setAtributoDao(AtributoDao atributoDao) {
+		this.atributoDao = atributoDao;
 	}
 }

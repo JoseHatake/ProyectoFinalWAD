@@ -28,12 +28,12 @@ public class ExcepcionDao {
 	}
 	
 	public void delete(ExcepcionId id){
-		Exception exception = this.findById(id);
+		Excepcion exception = this.findById(id);
 		sessionFactory.getCurrentSession().delete(exception);
 	}
 	
-	public Exception findById(ExcepcionId id){
-		return sessionFactory.getCurrentSession().load(Exception.class, (Serializable) id);
+	public Excepcion findById(ExcepcionId id){
+		return sessionFactory.getCurrentSession().load(Excepcion.class,(Serializable) id);
 	}
 
 	/**

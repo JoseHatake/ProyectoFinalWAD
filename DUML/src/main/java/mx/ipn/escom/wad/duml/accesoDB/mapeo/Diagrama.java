@@ -31,11 +31,11 @@ public class Diagrama {
 
 	@ManyToOne
 	@JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario", insertable = false, updatable = false)
-	private Usuario usuario;
+	private Usuario usuarioObj;
 
 	@ManyToOne
 	@JoinColumn(name = "id_empresa", referencedColumnName = "id_empresa", insertable = false, updatable = false)
-	private Empresa empresa;
+	private Empresa empresaObj;
 
 	public Diagrama() {
 		super();
@@ -126,19 +126,31 @@ public class Diagrama {
 		this.path = path;
 	}
 
-	public Usuario getUsuario() {
-		return usuario;
+	/**
+	 * @return the usuarioObj
+	 */
+	public Usuario getUsuarioObj() {
+		return usuarioObj;
 	}
 
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
+	/**
+	 * @param usuarioObj the usuarioObj to set
+	 */
+	public void setUsuarioObj(Usuario usuarioObj) {
+		this.usuarioObj = usuarioObj;
 	}
 
-	public Empresa getEmpresa() {
-		return empresa;
+	/**
+	 * @return the empresaObj
+	 */
+	public Empresa getEmpresaObj() {
+		return empresaObj;
 	}
 
-	public void setEmpresa(Empresa empresa) {
-		this.empresa = empresa;
+	/**
+	 * @param empresaObj the empresaObj to set
+	 */
+	public void setEmpresaObj(Empresa empresaObj) {
+		this.empresaObj = empresaObj;
 	}
 }
