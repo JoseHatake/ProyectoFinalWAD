@@ -74,6 +74,18 @@
 		<servlet-class>mx.ipn.escom.wad.duml.servlets.LogoutCtrl</servlet-class>
 	</servlet>
 	
+	<!-- Controla guardar diagrama -->
+	<servlet>
+	    <servlet-name>GuardarDiagrama</servlet-name>
+	    <servlet-class>mx.ipn.escom.wad.duml.diagrama.GuardarDiagrama</servlet-class>
+    </servlet>
+    
+   	<!-- Controla leer diagrama -->
+    <servlet>
+	    <servlet-name>LeerDiagrama</servlet-name>
+	    <servlet-class>mx.ipn.escom.wad.duml.diagrama.LeerDiagrama</servlet-class>
+  	</servlet>
+	
 	<!-- Controla el registro -->
 	<servlet>
 		<servlet-name>RegistroCtrl</servlet-name>
@@ -97,6 +109,19 @@
 		<servlet-name>RegistroCtrl</servlet-name>
 		<url-pattern>/Registro.do</url-pattern>
 	</servlet-mapping>
+	
+	<!-- Mapeo guardar diagrama -->
+	<servlet-mapping>
+	    <servlet-name>GuardarDiagrama</servlet-name>
+	    <url-pattern>/GuardarDiagrama</url-pattern>
+  	</servlet-mapping>
+  	
+	<!-- Mapeo guardar diagrama -->
+	<servlet-mapping>
+    	<servlet-name>LeerDiagrama</servlet-name>
+    	<url-pattern>/LeerDiagrama</url-pattern>
+  	</servlet-mapping>
+	
 
 	<!-- Listener que crea el contexto necesario una vez que se ejecuta la aplicación 
 		web, lee y parsea el context-param definido en este mismo archivo -->
