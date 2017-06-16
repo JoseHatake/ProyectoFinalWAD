@@ -67,6 +67,6 @@ public class LoginCtrl extends HttpServlet {
 		request.getSession().setAttribute("Usuario.nombre", usuario.getNombre());
 		request.getSession().setAttribute("Usuario.primer_ap", usuario.getPrimerApellido());
 		request.getSession().setAttribute("Usuario.segundo_ap", usuario.getSegundoApellido());
-		response.sendRedirect(redirigirA);
+		response.sendRedirect(request.getContextPath() + "/KitchenSink/index.html");
 	}
 }
