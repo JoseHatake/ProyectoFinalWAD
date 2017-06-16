@@ -51,13 +51,13 @@
 
 	<!-- Se mapea el filtro que permite abrir sesiones durante una petición 
 		para obtener que no son cargados mediante el dao -->
-	<filter-mapping>
+	 <filter-mapping>
 		<filter-name>openSessionInViewFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-
+	
 	<!-- Se mapea el filtro de sesiones -->
-	<filter-mapping>
+	 <filter-mapping>
 		<filter-name>FiltroSesion</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
@@ -113,13 +113,13 @@
 	<!-- Mapeo guardar diagrama -->
 	<servlet-mapping>
 	    <servlet-name>GuardarDiagrama</servlet-name>
-	    <url-pattern>/GuardarDiagrama</url-pattern>
+	    <url-pattern>/KitchenSink/GuardarDiagrama</url-pattern>
   	</servlet-mapping>
   	
 	<!-- Mapeo guardar diagrama -->
 	<servlet-mapping>
     	<servlet-name>LeerDiagrama</servlet-name>
-    	<url-pattern>/LeerDiagrama</url-pattern>
+    	<url-pattern>/KitchenSink/LeerDiagrama</url-pattern>
   	</servlet-mapping>
 	
 

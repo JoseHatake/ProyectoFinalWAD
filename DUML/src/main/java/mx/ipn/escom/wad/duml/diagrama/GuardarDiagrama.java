@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import mx.ipn.escom.wad.duml.accesoDB.dao.UsuarioDao;
 import mx.ipn.escom.wad.duml.accesoDB.mapeo.Usuario;
@@ -41,15 +42,13 @@ public class GuardarDiagrama extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String login = request.getParameter("usuario");
-		String nombre = request.getParameter("nombre");
-		UsuarioDao usuarioDao = new UsuarioDao();
-		
-		Usuario usuario = usuarioDao.findByLogin(login);
+		HttpSession misession= (HttpSession) request.getSession();
+
 		String json=request.getParameter("datos");
-		System.out.println(login);
-		String ruta="/home/ady/Escritorio/Info/"+login+usuario.getNombre()+nombre+".txt";
-		writeToFile("/home/ady/Escritorio/dato.txt",json);
+			
+		Usuario user  = (Usuario) misession.getAttribute("Usuario");
+		String ruta=user.getLogin()+"."+user.getNombre()+".txt";
+		writeToFile("../DUML/src/main/webapp/KitchenSink/archivos/"+ruta,json);
 		//guardar ruta del diagrama
 		doGet(request, response);
 	}
