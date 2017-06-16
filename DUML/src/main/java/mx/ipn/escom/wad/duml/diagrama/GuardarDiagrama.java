@@ -43,11 +43,12 @@ public class GuardarDiagrama extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession misession= (HttpSession) request.getSession();
+		Usuario user  = (Usuario) misession.getAttribute("Usuario");
 
 		String json=request.getParameter("datos");
-			
-		Usuario user  = (Usuario) misession.getAttribute("Usuario");
-		String ruta=user.getLogin()+"."+user.getNombre()+".txt";
+		
+		
+		String ruta=user.getLogin()+"/"+user.getNombre()+"/nombre.txt";
 		writeToFile("../DUML/src/main/webapp/KitchenSink/archivos/"+ruta,json);
 		//guardar ruta del diagrama
 		doGet(request, response);

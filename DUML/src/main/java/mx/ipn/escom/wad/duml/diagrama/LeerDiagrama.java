@@ -47,7 +47,7 @@ public class LeerDiagrama extends HttpServlet {
 		HttpSession misession= (HttpSession) request.getSession();
 		Usuario user  = (Usuario) misession.getAttribute("Usuario");		
 		//consultar nombre del archivo
-		String ruta="../DUML/src/main/webapp/KitchenSink/archivos/"+user.getLogin()+"."+user.getNombre()+".txt";
+		String ruta="../DUML/src/main/webapp/KitchenSink/archivos/"+user.getLogin()+"/"+user.getNombre()+"/nombre.txt";
 		ObjectInputStream in = new ObjectInputStream(new FileInputStream(ruta));
 		try {
 			String datos=(String) in.readObject();
