@@ -62,4 +62,14 @@ public class Empresa {
 	public void setRfc(String rfc) {
 		this.rfc = rfc;
 	}
+	
+/*
+	public Empresa(Integer id, String nombre, String rfc) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.rfc = rfc;
+	}
+	*/
+	
 }

@@ -1,11 +1,16 @@
 package mx.ipn.escom.wad.duml.accesoDB.dao;
 
+import java.util.List;
+
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 import mx.ipn.escom.wad.duml.accesoDB.mapeo.Empresa;
+import mx.ipn.escom.wad.duml.accesoDB.mapeo.Usuario;
 
 @Service("empresaDao")
 @Scope(value = BeanDefinition.SCOPE_SINGLETON )
@@ -32,6 +37,15 @@ public class EmpresaDao {
 	public Empresa findById(Integer id){
 		return sessionFactory.getCurrentSession().load(Empresa.class, id);
 	}
+	
+	public List<Empresa> findbyUsuario(Integer id){
+		
+		String Query=" select*from empresa inner join empresa_usuario where empresa_usuario.id_usuario="+id;
+		return  sessionFactory.getCurrentSession().createSQLQuery(Query).addEntity(Empresa.class).list();
+		
+	}
+	
+	
 
 	public SessionFactory getSessionFactory() {
 		return sessionFactory;

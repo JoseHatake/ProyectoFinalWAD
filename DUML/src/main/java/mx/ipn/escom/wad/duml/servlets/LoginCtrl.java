@@ -59,7 +59,8 @@ public class LoginCtrl extends HttpServlet {
 					+ URLEncoder.encode(redirigirA, "UTF-8"));
 			return;
 		}
-
+		
+		
 		request.getSession().setAttribute("LoggedIn", true);
 		request.getSession().setAttribute("Usuario", usuario);
 		request.getSession().setAttribute("Usuario.id", usuario.getId());

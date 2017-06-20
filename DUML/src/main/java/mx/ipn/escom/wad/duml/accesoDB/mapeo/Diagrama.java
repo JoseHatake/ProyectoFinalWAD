@@ -37,7 +37,7 @@ public class Diagrama {
 	@JoinColumn(name = "id_empresa", referencedColumnName = "id_empresa", insertable = false, updatable = false)
 	private Empresa empresaObj;
 
-	public Diagrama() {
+	/*public Diagrama() {
 		super();
 	}
 
@@ -47,7 +47,7 @@ public class Diagrama {
 		this.idUsuario = idUsuario;
 		this.nombre = nombre;
 		this.path = path;
-	}
+	}*/
 
 
 
@@ -95,7 +95,7 @@ public class Diagrama {
 	public void setIdUsuario(Integer idUsuario) {
 		this.idUsuario = idUsuario;
 	}
-	
+
 	/**
 	 * @return the nombre
 	 */
@@ -104,10 +104,11 @@ public class Diagrama {
 	}
 
 	/**
-	 * @param nombre the nombre to set
+	 * @param string
+	 *            the nombre to set
 	 */
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setNombre(String string) {
+		this.nombre = string;
 	}
 
 	/**
@@ -152,4 +153,6 @@ public class Diagrama {
 	public void setEmpresaObj(Empresa empresaObj) {
 		this.empresaObj = empresaObj;
 	}
+	
+	
 }

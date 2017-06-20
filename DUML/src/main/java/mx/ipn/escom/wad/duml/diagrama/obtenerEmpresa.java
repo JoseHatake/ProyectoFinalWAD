@@ -1,10 +1,8 @@
 package mx.ipn.escom.wad.duml.diagrama;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,26 +11,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
-import mx.ipn.escom.wad.duml.accesoDB.dao.DiagramaDao;
-import mx.ipn.escom.wad.duml.accesoDB.mapeo.Diagrama;
+import mx.ipn.escom.wad.duml.accesoDB.dao.EmpresaDao;
 import mx.ipn.escom.wad.duml.accesoDB.mapeo.Empresa;
 import mx.ipn.escom.wad.duml.accesoDB.mapeo.Usuario;
+
 /**
- * Servlet implementation class GuardarDiagrama
+ * Servlet implementation class obtenerEmpresa
  */
-@WebServlet("/GuardarDiagrama")
-public class GuardarDiagrama extends HttpServlet {
+@WebServlet("/obtenerEmpresa")
+public class obtenerEmpresa extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GuardarDiagrama() {
+    public obtenerEmpresa() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -49,39 +44,24 @@ public class GuardarDiagrama extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		HttpSession misession= (HttpSession) request.getSession();
 		Usuario user  = (Usuario) misession.getAttribute("Usuario");
-
-		String json=request.getParameter("datos");
 		
-		String nombre="nombreX";
-		
-		String ruta=user.getLogin()+"/"+user.getNombre()+"/"+nombre+".txt";
-		String rutaC="../DUML/src/main/webapp/KitchenSink/archivos/"+ruta;		
-		DiagramaDao diagramaDao = new DiagramaDao();
-		
-		SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(diagramaDao,
+		EmpresaDao empresaDao = new EmpresaDao();
+		SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(empresaDao,
 				getServletConfig().getServletContext());
 		
-		Diagrama diagrama = new Diagrama();
+		List<Empresa> empresa=empresaDao.findbyUsuario(user.getId());
+		PrintWriter out = response.getWriter();
 		
-		diagrama.setIdEmpresa(1);
-		diagrama.setIdUsuario(user.getId());
-		diagrama.setNombre(nombre);
-		diagrama.setPath(rutaC);
-		diagramaDao.save(diagrama);		
+		for(int i=0;i<empresa.size();i++){
+			out.println("<option value='"+empresa.get(i).getId()+"'>"+empresa.get(i).getNombre()+"</option>");
+		}
+		
+		
+		
 		doGet(request, response);
 	}
-	
-
-	private void writeToFile(String filename, String archivo) throws FileNotFoundException, IOException {
-		File f = new File(filename);
-		f.getParentFile().mkdirs();
-		ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filename));
-	    out.writeObject(archivo);
-		out.close();
-	}
-	
-	
 
 }
