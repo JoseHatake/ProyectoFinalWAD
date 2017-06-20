@@ -63,7 +63,6 @@
     <servlet-name>RegistroCtrl</servlet-name>
     <servlet-class>mx.ipn.escom.wad.duml.servlets.RegistroCtrl</servlet-class>
   </servlet>
-  
   <servlet>
     <servlet-name>obtenerEmpresa</servlet-name>
     <servlet-class>mx.ipn.escom.wad.duml.diagrama.obtenerEmpresa</servlet-class>
@@ -72,7 +71,6 @@
     <servlet-name>obtenerEmpresa</servlet-name>
     <url-pattern>/KitchenSink/obtenerEmpresa</url-pattern>
   </servlet-mapping>
-  
   <servlet-mapping>
     <servlet-name>LoginCtrl</servlet-name>
     <url-pattern>/Login.do</url-pattern>

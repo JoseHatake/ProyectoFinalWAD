@@ -121,7 +121,7 @@ App.config = App.config || {};
                         id: 'btn-to-front',
                         'data-tooltip': 'Open Diagram User',
                         'data-tooltip-position': 'top',
-                        'onclick':'f_abrir()'
+                        'onclick':'f_OpenModal()'
                     }
                 }
             },
@@ -135,7 +135,7 @@ App.config = App.config || {};
                         id: 'btn-to-back',
                         'data-tooltip': 'Save Diagram User',
                         'data-tooltip-position': 'top',
-                        'onclick':'f_guardar()'
+                        'onclick':'f_SaveModal()'
                     }
                 }
             },

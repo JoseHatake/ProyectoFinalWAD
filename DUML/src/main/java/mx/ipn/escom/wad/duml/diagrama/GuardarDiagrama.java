@@ -54,7 +54,7 @@ public class GuardarDiagrama extends HttpServlet {
 
 		String json=request.getParameter("datos");
 		
-		String nombre="nombreX";
+		String nombre=request.getParameter("nombre");
 		
 		String ruta=user.getLogin()+"/"+user.getNombre()+"/"+nombre+".txt";
 		String rutaC="../DUML/src/main/webapp/KitchenSink/archivos/"+ruta;		

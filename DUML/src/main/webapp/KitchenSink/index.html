@@ -85,7 +85,6 @@
 
     <!-- The Modal -->
     <div id="myModal" class="modal">
-
         <!-- Modal content -->
         <div class="modal-content">
             <div class="modal-header">
@@ -93,10 +92,32 @@
                 <h2>Assigned diagrams</h2>
             </div>
             <div class="modal-body">
-                <div id="diagrams">
+               <table width="100">
+                   <thead>
+                       <tr>
+                           <th colspan="1">
+                               Empresas
+                           </th>
+                           <th colspan="1">
+                               Diagramas
+                           </th>
+                       </tr>
+                   </thead>
+                    <tbody>
+                       <tr>
+                           <td>
+                               <select id="empresas" name="empresas" >
+                                   <option value="">Seleccione una empresa</option>
+                                   <div id="opt_empresas">
 
+                                   </div>
+                               </select>
+                           </td>
+                       </tr>
 
-                </div>
+                    </tbody>
+
+               </table>
             </div>
             <div class="modal-footer">
                 <div align="right">
@@ -104,12 +125,33 @@
                 </div>
             </div>
         </div>
+    </div>
 
+
+
+    <!-- The Modal -->
+    <div id="myModalSave" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Save diagram</h2>
+            </div>
+            <div class="modal-body">
+                Name <input type="text" id="nameDiagram" name="nameDiagram">
+            </div>
+            <div class="modal-footer">
+                <div align="right">
+                    <input class="myButton" type="button" value="Guardar" onclick="f_guardar()">
+                </div>
+            </div>
+        </div>
     </div>
 
 <script>
     // Get the modal
     var modal = document.getElementById('myModal');
+    var modalSave = document.getElementById('myModalSave');
 
     // Get the button that opens the modal
     var btn = document.getElementById("btn-to-front");
@@ -125,7 +167,9 @@
         modal.style.display = "none";
     }
 
-
+    span.onclick = function() {
+        modalSave.style.display = "none";
+    }
 
 </script>
 </body>

@@ -2,8 +2,10 @@ package mx.ipn.escom.wad.duml.diagrama;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,10 +13,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
-import mx.ipn.escom.wad.duml.accesoDB.dao.EmpresaDao;
+import mx.ipn.escom.wad.duml.accesoDB.bs.EmpresaBs;
+import mx.ipn.escom.wad.duml.accesoDB.bs.EmpresaUsuarioBs;
 import mx.ipn.escom.wad.duml.accesoDB.mapeo.Empresa;
+import mx.ipn.escom.wad.duml.accesoDB.mapeo.EmpresaUsuario;
 import mx.ipn.escom.wad.duml.accesoDB.mapeo.Usuario;
 
 /**
@@ -23,6 +28,12 @@ import mx.ipn.escom.wad.duml.accesoDB.mapeo.Usuario;
 @WebServlet("/obtenerEmpresa")
 public class obtenerEmpresa extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	@Autowired
+	private EmpresaBs empresaBs;
+	
+	@Autowired
+	private EmpresaUsuarioBs empresaUsuarioBs;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -31,13 +42,21 @@ public class obtenerEmpresa extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
+    
+    
+    @Override
+    public void init(ServletConfig config) throws ServletException{
+    	super.init(config);
+    	SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this, getServletContext());
+    }
+    
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -47,12 +66,14 @@ public class obtenerEmpresa extends HttpServlet {
 		
 		HttpSession misession= (HttpSession) request.getSession();
 		Usuario user  = (Usuario) misession.getAttribute("Usuario");
+
+		List<EmpresaUsuario> listaEmpresausuario = empresaUsuarioBs.findByIdUsuario(user.getId());
+		List<Empresa> empresa = new ArrayList<>();
 		
-		EmpresaDao empresaDao = new EmpresaDao();
-		SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(empresaDao,
-				getServletConfig().getServletContext());
+		for (EmpresaUsuario listaEmpresa : listaEmpresausuario) {
+			empresa.add(empresaBs.findById(listaEmpresa.getIdEmpresa()));
+		}
 		
-		List<Empresa> empresa=empresaDao.findbyUsuario(user.getId());
 		PrintWriter out = response.getWriter();
 		
 		for(int i=0;i<empresa.size();i++){
