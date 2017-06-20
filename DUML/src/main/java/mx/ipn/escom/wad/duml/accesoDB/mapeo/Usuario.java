@@ -113,4 +113,13 @@ public class Usuario {
 	public void setSegundoApellido(String segundoApellido) {
 		this.segundoApellido = segundoApellido;
 	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Usuario [login=" + login + ", nombre=" + nombre + ", primerApellido=" + primerApellido
+				+ ", segundoApellido=" + segundoApellido + "]";
+	}
 }

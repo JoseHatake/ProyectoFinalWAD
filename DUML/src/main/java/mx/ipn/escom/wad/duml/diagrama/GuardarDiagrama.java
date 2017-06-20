@@ -12,8 +12,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import mx.ipn.escom.wad.duml.accesoDB.dao.UsuarioDao;
 import mx.ipn.escom.wad.duml.accesoDB.mapeo.Usuario;
 /**
  * Servlet implementation class GuardarDiagrama
