@@ -1,5 +1,7 @@
 package mx.ipn.escom.wad.duml.accesoDB.bs;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
@@ -41,6 +43,10 @@ public class EmpresaUsuarioBs {
 		return empresaUsuarioDao.findById(id);
 	}
 
+	@Transactional(readOnly = true)
+	public List<EmpresaUsuario> findByIdUsuario(Integer id){
+		return empresaUsuarioDao.findByIdUsuario(id);
+	}
 	/**
 	 * @return the empresaUsuarioDao
 	 */
