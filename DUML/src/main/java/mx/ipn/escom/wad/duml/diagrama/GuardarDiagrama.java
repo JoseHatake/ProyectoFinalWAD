@@ -12,8 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-<<<<<<< HEAD
-=======
+
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -23,7 +22,6 @@ import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 import mx.ipn.escom.wad.duml.accesoDB.dao.DiagramaDao;
 import mx.ipn.escom.wad.duml.accesoDB.mapeo.Diagrama;
 import mx.ipn.escom.wad.duml.accesoDB.mapeo.Empresa;
->>>>>>> a436e0ce514626675f9f6056bc7cca19ebaa1342
 import mx.ipn.escom.wad.duml.accesoDB.mapeo.Usuario;
 /**
  * Servlet implementation class GuardarDiagrama

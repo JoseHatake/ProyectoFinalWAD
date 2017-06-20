@@ -132,7 +132,7 @@
         <!-- Modal content -->
         <div class="modal-content">
             <div class="modal-header">
-                <span class="close">&times;</span>
+                <span class="closeSave">&times;</span>
                 <h2>Save diagram</h2>
             </div>
             <div class="modal-body">
@@ -156,6 +156,7 @@
 
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
+    var spanSave = document.getElementsByClassName("closeSave")[0];
 
     // When the user clicks the button, open the modal
 
@@ -165,7 +166,7 @@
         modal.style.display = "none";
     }
 
-    span.onclick = function() {
+    spanSave.onclick = function() {
         modalSave.style.display = "none";
     }
 
