@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+>>>>>>> 44e0158719b59b1015f3e3e29387b0ecd52880f9
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
   <display-name>Archetype Created Web Application</display-name>
   <listener>
@@ -93,5 +97,4 @@
   <session-config>
     <session-timeout>20</session-timeout>
   </session-config>
->>>>>>> a436e0ce514626675f9f6056bc7cca19ebaa1342
 </web-app>

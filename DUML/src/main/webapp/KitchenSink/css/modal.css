@@ -54,6 +54,23 @@
     cursor: pointer;
 }
 
+
+/* The Close Button */
+.closeSave {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.closeSave:hover,
+.closeSave:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
 .modal-header {
     padding: 2px 16px;
     background-color: #30d0c6;
