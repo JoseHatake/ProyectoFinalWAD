@@ -11,7 +11,7 @@ function f_OpenModal() {
         success : function(response) {
             console.log(response);
             alert(response);
-            $("#opt_empresas").html(response);
+            $("#empresas").append(response);
 
         },
 
@@ -53,6 +53,21 @@ function f_OpenModal() {
 
 function f_SaveModal() {
     modalSave.style.display= "block";
+
+
+}
+
+
+
+
+function f_obtenerDiagramas() {
+    var empresas = $("#empresas").val();
+
+    if(empresas==''){
+        return;
+    }
+
+
 
 
 }
