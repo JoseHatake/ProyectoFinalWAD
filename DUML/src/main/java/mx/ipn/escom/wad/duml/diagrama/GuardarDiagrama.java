@@ -5,21 +5,15 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
-
 import mx.ipn.escom.wad.duml.accesoDB.dao.DiagramaDao;
 import mx.ipn.escom.wad.duml.accesoDB.mapeo.Diagrama;
-import mx.ipn.escom.wad.duml.accesoDB.mapeo.Empresa;
 import mx.ipn.escom.wad.duml.accesoDB.mapeo.Usuario;
 /**
  * Servlet implementation class GuardarDiagrama
@@ -50,8 +44,6 @@ public class GuardarDiagrama extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession misession= (HttpSession) request.getSession();
 		Usuario user  = (Usuario) misession.getAttribute("Usuario");
-
-		String json=request.getParameter("datos");
 		
 		String nombre=request.getParameter("nombre");
 		
@@ -72,7 +64,6 @@ public class GuardarDiagrama extends HttpServlet {
 		doGet(request, response);
 	}
 	
-
 	private void writeToFile(String filename, String archivo) throws FileNotFoundException, IOException {
 		File f = new File(filename);
 		f.getParentFile().mkdirs();
@@ -80,7 +71,4 @@ public class GuardarDiagrama extends HttpServlet {
 	    out.writeObject(archivo);
 		out.close();
 	}
-	
-	
-
 }

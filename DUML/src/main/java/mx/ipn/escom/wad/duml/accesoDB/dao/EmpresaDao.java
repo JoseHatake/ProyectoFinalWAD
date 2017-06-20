@@ -1,19 +1,11 @@
 package mx.ipn.escom.wad.duml.accesoDB.dao;
 
-import java.util.ArrayList;
-import java.util.List;
-
-
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
-
-import mx.ipn.escom.wad.duml.accesoDB.bs.EmpresaBs;
-import mx.ipn.escom.wad.duml.accesoDB.bs.EmpresaUsuarioBs;
 import mx.ipn.escom.wad.duml.accesoDB.mapeo.Empresa;
-import mx.ipn.escom.wad.duml.accesoDB.mapeo.EmpresaUsuario;
 
 @Service("empresaDao")
 @Scope(value = BeanDefinition.SCOPE_SINGLETON )
