@@ -6,7 +6,9 @@
     <link rel="stylesheet" type="text/css" href="build/rappid.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/theme-picker.css">
+    <link rel="stylesheet" type="text/css" href="css/modal.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
 </head>
 <body>
     <div id="app">
@@ -38,6 +40,7 @@
           // `-ms-user-select: none` doesn't work in IE9
           document.onselectstart = function() { return false; };
         </script>
+
     <![endif]-->
 
     <!-- Application files:  -->
@@ -80,8 +83,51 @@
         })();
     </script>
 
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Assigned diagrams</h2>
+            </div>
+            <div class="modal-body">
+                <div id="diagrams">
 
 
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div align="right">
+                    <input class="myButton" type="button" value="Open">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+<script>
+    // Get the modal
+    var modal = document.getElementById('myModal');
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("btn-to-front");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal
+
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+
+
+</script>
 </body>
 </html>
 

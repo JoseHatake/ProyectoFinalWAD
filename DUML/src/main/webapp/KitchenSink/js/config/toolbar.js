@@ -114,6 +114,7 @@ App.config = App.config || {};
                 type: 'button',
                 name: 'to-open',
                 group: 'order',
+
                 text: 'Open',
                 attrs: {
                     button: {

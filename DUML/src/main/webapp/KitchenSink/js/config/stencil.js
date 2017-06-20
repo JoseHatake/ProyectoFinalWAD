@@ -226,48 +226,6 @@ App.config = App.config || {};
                     'font-size': 11
                 }
             }
-        },
-
-        {
-            type: 'uml.State',
-            name: 'State',
-            events: ['entry/', 'create()'],
-            size: {
-                width: 150,
-                height: 100
-            },
-            attrs: {
-                '.': {
-                    'data-tooltip': 'State',
-                    'data-tooltip-position': 'left',
-                    'data-tooltip-position-selector': '.joint-stencil'
-                },
-                '.uml-state-body': {
-                    fill: '#feb663',
-                    stroke: '#f6f6f6',
-                    'stroke-width': 1,
-                    rx: 8,
-                    ry: 8,
-                    'stroke-dasharray': '0'
-                },
-                '.uml-state-separator': {
-                    stroke: '#f6f6f6',
-                    'stroke-width': 1,
-                    'stroke-dasharray': '0'
-                },
-                '.uml-state-name': {
-                    fill: '#f6f6f6',
-                    'font-size': 11,
-                    'font-family': 'Roboto Condensed',
-                    'font-weight': 'Normal'
-                },
-                '.uml-state-events': {
-                    fill: '#f6f6f6',
-                    'font-size': 11,
-                    'font-family': 'Roboto Condensed',
-                    'font-weight': 'Normal'
-                }
-            }
         }
     ];
 
