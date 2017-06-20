@@ -32,5 +32,18 @@ public class DiagramaDao {
 	public Diagrama findById(Integer id){
 		return sessionFactory.getCurrentSession().load(Diagrama.class, id);
 	}
-	
+
+	/**
+	 * @return the sessionFactory
+	 */
+	public SessionFactory getSessionFactory() {
+		return sessionFactory;
+	}
+
+	/**
+	 * @param sessionFactory the sessionFactory to set
+	 */
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+	}
 }

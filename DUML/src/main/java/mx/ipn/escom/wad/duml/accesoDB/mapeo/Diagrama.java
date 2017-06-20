@@ -24,7 +24,7 @@ public class Diagrama {
 	private Integer idUsuario;
 
 	@Column(name = "nb_diagrama")
-	private Integer nombre;
+	private String nombre;
 
 	@Column(name = "tx_path")
 	private String path;
@@ -41,7 +41,7 @@ public class Diagrama {
 		super();
 	}
 
-	public Diagrama(Integer idEmpresa, Integer idUsuario, Integer nombre, String path) {
+	public Diagrama(Integer idEmpresa, Integer idUsuario, String nombre, String path) {
 		super();
 		this.idEmpresa = idEmpresa;
 		this.idUsuario = idUsuario;
@@ -95,19 +95,18 @@ public class Diagrama {
 	public void setIdUsuario(Integer idUsuario) {
 		this.idUsuario = idUsuario;
 	}
-
+	
 	/**
 	 * @return the nombre
 	 */
-	public Integer getNombre() {
+	public String getNombre() {
 		return nombre;
 	}
 
 	/**
-	 * @param nombre
-	 *            the nombre to set
+	 * @param nombre the nombre to set
 	 */
-	public void setNombre(Integer nombre) {
+	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
