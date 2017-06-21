@@ -3,14 +3,12 @@
  */
 function f_OpenModal() {
 
-
     modal.style.display = "block";
     $.ajax({
         url : 'obtenerEmpresa',
         type : 'POST',
         success : function(response) {
             console.log(response);
-            alert(response);
             $("#empresas").append(response);
 
         },
@@ -20,7 +18,7 @@ function f_OpenModal() {
         },
 
         complete : function(xhr, status) {
-            alert('Petición realizada');
+            console.log('Petición realizada');
         }
     });
 
@@ -66,6 +64,27 @@ function f_obtenerDiagramas() {
     if(empresas==''){
         return;
     }
+    $.ajax({
+        url : 'leerDiagramas',
+        data : {"id_empresa":empresas} ,
+        type : 'POST',
+        success : function(response) {
+            console.log(response);
+            app.graph.fromJSON(JSON.parse(response));
+
+            alert("Exitoso");
+        },
+
+        error : function(xhr, status) {
+            alert('Disculpe, existió un problema');
+        },
+
+        complete : function(xhr, status) {
+            alert('Petición realizada');
+        }
+    });
+
+
 
 
 
