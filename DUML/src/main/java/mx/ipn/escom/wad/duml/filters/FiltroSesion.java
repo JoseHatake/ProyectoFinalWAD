@@ -10,6 +10,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import mx.ipn.escom.wad.duml.accesoDB.mapeo.Usuario;
 
@@ -29,9 +30,12 @@ public class FiltroSesion implements Filter {
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		Usuario usuario = (Usuario)request.getAttribute("usuario");
+		Usuario usuario = null;
 		HttpServletRequest requestUpper = (HttpServletRequest) request;
 		HttpServletResponse responseUpper = (HttpServletResponse) response;
+		HttpSession sesion = requestUpper.getSession();
+		
+		usuario = (Usuario) sesion.getAttribute("Usuario");
 		if (usuario != null)
 			System.out.println("Usuario: " + usuario);
 		else{

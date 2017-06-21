@@ -1,4 +1,4 @@
-package mx.ipn.escom.wad.duml.diagrama;
+package mx.ipn.escom.wad.duml.servlets.diagrama;
 
 import java.io.FileInputStream;
 import java.io.IOException;

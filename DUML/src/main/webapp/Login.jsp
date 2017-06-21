@@ -52,15 +52,12 @@
 	
 	</div>
 		<div class="col-md-4 well well-sm" style="background-color: #E3E0D9;">
-			<form method="post" action="<%=request.getContextPath()%>/Login.do">
-				<input type="hidden" name="redirigir_a"
-					value="<%=red == null ? (request.getContextPath() + "/") : red%>">
-				<input type="text" class="form-control" placeholder="Usuario"
-					name="usuario"> <input type="password" class="form-control"
-					placeholder="Contraseña" name="clave">
+			<form method="post" action="LogIn">
+				<input type="text" class="form-control" placeholder="Usuario" name="usuario">
+				<input type="password" class="form-control" placeholder="Contraseña" name="clave">
 				<button type="submit" class="btn btn-primary">Ingresar</button>
 			</form>
-			<br> <a href="<%=request.getContextPath()%>/Registro.jsp">Registro</a>
+			<br> <a href="Registro.jsp">Registro</a>
 		</div>
 	</div>
 	<div class="col-md-4">

@@ -24,7 +24,7 @@
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect
 				</prop>
 				<!-- Imprime en consola la sentencia creada por hibernate -->
-				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.show_sql">false</prop>
 				<!-- Permite la reflexión mediante manipulación de bytecode en lugar 
 					de reflexión en tiempo de ejecución. Esto vuelve más óptimo el trabajo de 
 					Hibernate -->

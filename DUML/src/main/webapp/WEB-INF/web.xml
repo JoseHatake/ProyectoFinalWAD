@@ -30,10 +30,6 @@
   <filter>
     <filter-name>FiltroSesion</filter-name>
     <filter-class>mx.ipn.escom.wad.duml.filters.FiltroSesion</filter-class>
-    <init-param>
-      <param-name>excluir</param-name>
-      <param-value>/Registro.jsp,/Registro.do,/index.jsp,/</param-value>
-    </init-param>
   </filter>
   <filter-mapping>
     <filter-name>openSessionInViewFilter</filter-name>
@@ -41,15 +37,15 @@
   </filter-mapping>
   <filter-mapping>
     <filter-name>FiltroSesion</filter-name>
-    <url-pattern>/*</url-pattern>
+    <url-pattern>/KitchenSink/*</url-pattern>
   </filter-mapping>
   <servlet>
     <servlet-name>GuardarDiagrama</servlet-name>
-    <servlet-class>mx.ipn.escom.wad.duml.diagrama.GuardarDiagrama</servlet-class>
+    <servlet-class>mx.ipn.escom.wad.duml.servlets.diagrama.GuardarDiagrama</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>LeerDiagrama</servlet-name>
-    <servlet-class>mx.ipn.escom.wad.duml.diagrama.LeerDiagrama</servlet-class>
+    <servlet-class>mx.ipn.escom.wad.duml.servlets.diagrama.LeerDiagrama</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>RegistroCtrl</servlet-name>
@@ -57,7 +53,11 @@
   </servlet>
   <servlet>
     <servlet-name>obtenerEmpresa</servlet-name>
-    <servlet-class>mx.ipn.escom.wad.duml.diagrama.obtenerEmpresa</servlet-class>
+    <servlet-class>mx.ipn.escom.wad.duml.servlets.diagrama.obtenerEmpresa</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>LogIn</servlet-name>
+  	<servlet-class>mx.ipn.escom.wad.duml.servlets.log.LogIn</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>obtenerEmpresa</servlet-name>
@@ -74,6 +74,10 @@
   <servlet-mapping>
     <servlet-name>LeerDiagrama</servlet-name>
     <url-pattern>/KitchenSink/LeerDiagrama</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>LogIn</servlet-name>
+  	<url-pattern>/LogIn</url-pattern>
   </servlet-mapping>
   <session-config>
     <session-timeout>20</session-timeout>

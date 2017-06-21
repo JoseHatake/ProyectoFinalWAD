@@ -1,15 +1,11 @@
 package mx.ipn.escom.wad.duml.accesoDB.dao;
 
-import java.util.List;
-
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
-import org.springframework.util.CollectionUtils;
 
 import mx.ipn.escom.wad.duml.accesoDB.mapeo.Usuario;
 
@@ -18,6 +14,8 @@ import mx.ipn.escom.wad.duml.accesoDB.mapeo.Usuario;
 public class UsuarioDao {
 	@Autowired
 	private SessionFactory sessionFactory;
+	
+	protected String QUERY1 = "select a from Usuario a where login = ?1 and password = ?2";
 	
 	public Usuario save(Usuario usuario){
 		sessionFactory.getCurrentSession().save(usuario);
@@ -38,17 +36,11 @@ public class UsuarioDao {
 		return sessionFactory.getCurrentSession().load(Usuario.class, id);
 	}
 	
-	public Usuario findByLogin(String login) {
-		Session session = sessionFactory.getCurrentSession();
-		Query<Usuario> query = session.createQuery("from Usuario where login = :login", Usuario.class);
-		query.setParameter("login", login);
-
-		List<Usuario> results = query.getResultList();
-		Usuario usuario = null;
-		if (!CollectionUtils.isEmpty(results)) {
-			usuario = results.get(0);
-		}
-
-		return usuario;
+	public Usuario findByLogin(String login, String pass) {
+		Query<Usuario> query = sessionFactory.getCurrentSession().createQuery(QUERY1,Usuario.class);
+		query.setParameter(1, login);
+		query.setParameter(2, pass);
+		Usuario respuesta = query.getResultList().get(0);
+		return respuesta;
 	}
 }

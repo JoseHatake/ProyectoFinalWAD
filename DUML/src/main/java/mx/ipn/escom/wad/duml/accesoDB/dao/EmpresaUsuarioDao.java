@@ -37,7 +37,7 @@ public class EmpresaUsuarioDao {
 	}
 	
 	public List<EmpresaUsuario> findByIdUsuario(Integer idUsuario){
-		Query<EmpresaUsuario> query=sessionFactory.getCurrentSession().createQuery(Query1,EmpresaUsuario.class);
+		Query<EmpresaUsuario> query = sessionFactory.getCurrentSession().createQuery(Query1,EmpresaUsuario.class);
 		query.setParameter(1,idUsuario);
 		return  query.getResultList();
 	

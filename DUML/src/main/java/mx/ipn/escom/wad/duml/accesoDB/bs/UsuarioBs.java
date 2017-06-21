@@ -40,6 +40,11 @@ public class UsuarioBs {
 	public Usuario findById(Integer id){
 		return usuarioDao.findById(id);
 	}
+	
+	@Transactional(readOnly = true)
+	public Usuario findByLogin(String login, String pass){
+		return usuarioDao.findByLogin(login, pass);
+	}
 
 	/**
 	 * @return the usuarioDao
