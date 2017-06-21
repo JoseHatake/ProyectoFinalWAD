@@ -18,7 +18,7 @@
 					<ul class="pagination">
 						<li><a href="index.jsp">Inicio</a></li>
 						<li><a href="Login.jsp">Login</a></li>
-						<li><a href="MandaInformacion?direccion=Registro&opt=1">Registro</a></li>
+						<li><a href="MandaInformacion?direccion=Registro.jsp&opt=1">Registro</a></li>
 					</ul>
 				</div>
 			</div>
