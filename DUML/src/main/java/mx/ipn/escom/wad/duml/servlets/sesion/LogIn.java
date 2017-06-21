@@ -1,4 +1,4 @@
-package mx.ipn.escom.wad.duml.servlets.log;
+package mx.ipn.escom.wad.duml.servlets.sesion;
 
 import java.io.IOException;
 

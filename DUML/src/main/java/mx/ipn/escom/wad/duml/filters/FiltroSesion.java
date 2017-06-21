@@ -36,12 +36,7 @@ public class FiltroSesion implements Filter {
 		HttpSession sesion = requestUpper.getSession();
 		
 		usuario = (Usuario) sesion.getAttribute("Usuario");
-		if (usuario != null){
-			System.out.println("Usuario: " + usuario);
-			chain.doFilter(request, response);
-		}
-		else{
-			System.out.println("Redireccion al inicio...");
+		if (usuario == null){
 			responseUpper.sendRedirect(requestUpper.getContextPath() + "/index.jsp");
 		}
 	}

@@ -1,6 +1,9 @@
 package mx.ipn.escom.wad.duml.accesoDB.dao;
 
+import java.util.List;
+
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
@@ -12,6 +15,8 @@ import mx.ipn.escom.wad.duml.accesoDB.mapeo.Empresa;
 public class EmpresaDao {
 	@Autowired
 	private SessionFactory sessionFactory;
+	
+	protected String QUERY1 = "select a from Empresa a";
 	
 public Empresa save(Empresa empresa){
 		sessionFactory.getCurrentSession().save(empresa);
@@ -31,6 +36,11 @@ public Empresa save(Empresa empresa){
 	
 	public Empresa findById(Integer id){
 		return sessionFactory.getCurrentSession().load(Empresa.class, id);
+	}
+	
+	public List<Empresa> getEmpresas(){
+		Query<Empresa> query = sessionFactory.getCurrentSession().createQuery(QUERY1,Empresa.class);
+		return query.getResultList();
 	}
 
 	public SessionFactory getSessionFactory() {

@@ -66,9 +66,11 @@ public class Empresa {
 		this.rfc = rfc;
 	}
 
-	/*
-	 * public Empresa(Integer id, String nombre, String rfc) { super(); this.id
-	 * = id; this.nombre = nombre; this.rfc = rfc; }
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
 	 */
-
+	@Override
+	public String toString() {
+		return "Empresa [id=" + id + ", nombre=" + nombre + ", rfc=" + rfc + "]";
+	}
 }

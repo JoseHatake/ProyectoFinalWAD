@@ -16,7 +16,7 @@
 				<div class="col-xs-12" style="background-color: #E3E0D9;">
 					<ul class="pagination">
 						<li><a href="Login.jsp">Login</a></li>
-						<li><a href="Registro.jsp">Registro</a></li>
+						<li><a href="MandaInformacion?direccion=Registro.jsp&opt=1">Registro</a></li>
 					</ul>
 				</div>
 			</div>
