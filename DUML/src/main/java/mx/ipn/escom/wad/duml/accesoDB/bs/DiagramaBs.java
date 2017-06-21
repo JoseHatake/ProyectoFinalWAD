@@ -1,5 +1,7 @@
 package mx.ipn.escom.wad.duml.accesoDB.bs;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
@@ -41,6 +43,12 @@ public class DiagramaBs {
 	public Diagrama findById(Integer id){
 		return diagramaDao.findById(id);
 	}
+	
+	@Transactional(readOnly = true)
+	public List<Diagrama> findByIDS(Integer idUsuario, Integer idEmpresa){
+		return diagramaDao.findByIDS(idUsuario, idEmpresa);
+	}
+
 
 	/**
 	 * @return the diagramaDao

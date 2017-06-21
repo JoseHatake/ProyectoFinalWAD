@@ -52,6 +52,7 @@
     <servlet-class>mx.ipn.escom.wad.duml.servlets.diagrama.obtenerEmpresa</servlet-class>
   </servlet>
   <servlet>
+<<<<<<< HEAD
     <servlet-name>LogIn</servlet-name>
     <servlet-class>mx.ipn.escom.wad.duml.servlets.sesion.LogIn</servlet-class>
   </servlet>
@@ -62,12 +63,31 @@
   <servlet>
   	<servlet-name>MandaInformacion</servlet-name>
   	<servlet-class>mx.ipn.escom.wad.duml.servlets.utilidad.MandaInformacion</servlet-class>
+=======
+    <servlet-name>obtenerDiagrama</servlet-name>
+    <servlet-class>mx.ipn.escom.wad.duml.servlets.diagrama.obtenerDiagrama</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>LogIn</servlet-name>
+    <servlet-class>mx.ipn.escom.wad.duml.servlets.log.LogIn</servlet-class>
+>>>>>>> f99e5a164cdeae17867f118e84081f48776f4536
   </servlet>
   <servlet-mapping>
     <servlet-name>obtenerEmpresa</servlet-name>
     <url-pattern>/KitchenSink/obtenerEmpresa</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
+<<<<<<< HEAD
+=======
+    <servlet-name>obtenerDiagrama</servlet-name>
+    <url-pattern>/KitchenSink/obtenerDiagrama</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>RegistroCtrl</servlet-name>
+    <url-pattern>/Registro.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+>>>>>>> f99e5a164cdeae17867f118e84081f48776f4536
     <servlet-name>GuardarDiagrama</servlet-name>
     <url-pattern>/KitchenSink/GuardarDiagrama</url-pattern>
   </servlet-mapping>
@@ -78,6 +98,7 @@
   <servlet-mapping>
     <servlet-name>LogIn</servlet-name>
     <url-pattern>/LogIn</url-pattern>
+<<<<<<< HEAD
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>Registro</servlet-name>
@@ -86,6 +107,8 @@
   <servlet-mapping>
   	<servlet-name>MandaInformacion</servlet-name>
   	<url-pattern>/MandaInformacion</url-pattern>
+=======
+>>>>>>> f99e5a164cdeae17867f118e84081f48776f4536
   </servlet-mapping>
   <session-config>
     <session-timeout>20</session-timeout>
