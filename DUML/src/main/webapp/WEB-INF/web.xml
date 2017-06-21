@@ -56,12 +56,20 @@
     <servlet-class>mx.ipn.escom.wad.duml.servlets.diagrama.obtenerEmpresa</servlet-class>
   </servlet>
   <servlet>
-  	<servlet-name>LogIn</servlet-name>
-  	<servlet-class>mx.ipn.escom.wad.duml.servlets.log.LogIn</servlet-class>
+    <servlet-name>obtenerDiagrama</servlet-name>
+    <servlet-class>mx.ipn.escom.wad.duml.servlets.diagrama.obtenerDiagrama</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>LogIn</servlet-name>
+    <servlet-class>mx.ipn.escom.wad.duml.servlets.log.LogIn</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>obtenerEmpresa</servlet-name>
     <url-pattern>/KitchenSink/obtenerEmpresa</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>obtenerDiagrama</servlet-name>
+    <url-pattern>/KitchenSink/obtenerDiagrama</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>RegistroCtrl</servlet-name>
@@ -76,8 +84,8 @@
     <url-pattern>/KitchenSink/LeerDiagrama</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>LogIn</servlet-name>
-  	<url-pattern>/LogIn</url-pattern>
+    <servlet-name>LogIn</servlet-name>
+    <url-pattern>/LogIn</url-pattern>
   </servlet-mapping>
   <session-config>
     <session-timeout>20</session-timeout>
