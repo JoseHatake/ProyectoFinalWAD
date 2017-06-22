@@ -76,11 +76,22 @@ public class obtenerEmpresa extends HttpServlet {
 		
 		PrintWriter out = response.getWriter();
 		
+		
+		Integer option= Integer.parseInt( request.getParameter("opcion"));
+		if(option==2){
+			out.println("<select id='empresas' name='empresas'>");
+		}else{
+			out.println("<select id='empresas' name='empresas' onchange='f_obtenerDiagramas()'>");
+		}
+		
+		
+		out.print("<option value=''>Seleccione una empresa</option>");
 		for(int i=0;i<empresa.size();i++){
 			out.println("<option value='"+empresa.get(i).getId()+"'>"+empresa.get(i).getNombre()+"</option>");
 		}
 		
-		
+		out.println("</select>");
+
 		
 		doGet(request, response);
 	}
