@@ -48,6 +48,11 @@ public class DiagramaBs {
 	public List<Diagrama> findByIDS(Integer idUsuario, Integer idEmpresa){
 		return diagramaDao.findByIDS(idUsuario, idEmpresa);
 	}
+	
+	@Transactional(readOnly = true)
+	public Boolean existeDiagrama(Integer idEmpresa, String nombre){
+		return diagramaDao.existeDiagrama(idEmpresa, nombre);
+	}
 
 
 	/**

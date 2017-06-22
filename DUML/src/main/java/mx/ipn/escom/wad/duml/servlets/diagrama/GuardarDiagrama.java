@@ -59,22 +59,21 @@ public class GuardarDiagrama extends HttpServlet {
 		HttpSession misession= (HttpSession) request.getSession();
 		Usuario user  = (Usuario) misession.getAttribute("Usuario");
 		
-		String nombre=request.getParameter("nombre");
-		
-		String datos=request.getParameter("datos");
-
+		String nombre = request.getParameter("nombre");
+		String datos = request.getParameter("datos");
+		Integer idEmpresa = 1;
 		
 		String ruta=user.getLogin()+"/"+user.getNombre()+"/"+nombre+".txt";
 		String rutaC="../DUML/src/main/webapp/KitchenSink/archivos/"+ruta;
 		
-		Diagrama diagrama = new Diagrama();
-		
-		diagrama.setIdEmpresa(1);
-		diagrama.setIdUsuario(user.getId());
-		diagrama.setNombre(nombre);
-		diagrama.setPath(rutaC);
-		
-		diagramaBS.save(diagrama);		
+		if (!diagramaBS.existeDiagrama(idEmpresa, nombre)) {
+			Diagrama diagrama = new Diagrama();
+			diagrama.setIdEmpresa(idEmpresa);
+			diagrama.setIdUsuario(user.getId());
+			diagrama.setNombre(nombre);
+			diagrama.setPath(rutaC);
+			diagramaBS.save(diagrama);	
+		}
 		
 		writeToFile(rutaC, datos);
 		
