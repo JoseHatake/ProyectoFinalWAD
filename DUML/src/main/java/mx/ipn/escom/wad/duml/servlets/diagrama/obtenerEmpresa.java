@@ -80,8 +80,6 @@ public class obtenerEmpresa extends HttpServlet {
 			out.println("<option value='"+empresa.get(i).getId()+"'>"+empresa.get(i).getNombre()+"</option>");
 		}
 		
-		
-		
 		doGet(request, response);
 	}
 
