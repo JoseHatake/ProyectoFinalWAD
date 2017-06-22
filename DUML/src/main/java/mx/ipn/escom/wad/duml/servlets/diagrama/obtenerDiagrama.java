@@ -62,10 +62,14 @@
 			
 			PrintWriter out = response.getWriter();
 			
+			
+			out.println("<select id='diagramas' name='diagramas' >");
+			out.print("<option value=''>Seleccione un diagrama</option>");
 			for(int i=0;i<diagrama.size();i++){
 				out.println("<option value='"+diagrama.get(i).getId()+"'>"+diagrama.get(i).getNombre()+"</option>");
 			}
-			
+			out.println("</select>");
+
 			doGet(request, response);
 		}
 

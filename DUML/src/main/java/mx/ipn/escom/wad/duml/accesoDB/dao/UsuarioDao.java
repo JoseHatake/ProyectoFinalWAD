@@ -1,5 +1,7 @@
 package mx.ipn.escom.wad.duml.accesoDB.dao;
 
+import java.util.List;
+
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,14 +43,14 @@ public class UsuarioDao {
 		Query<Usuario> query = sessionFactory.getCurrentSession().createQuery(QUERY1,Usuario.class);
 		query.setParameter(1, login);
 		query.setParameter(2, pass);
-		Usuario respuesta = query.getResultList().get(0);
-		return respuesta;
+		List<Usuario> respuesta = query.getResultList();
+		return respuesta.isEmpty()?new Usuario():respuesta.get(0);
 	}
 	
 	public Boolean estaLogeado(String login){
 		Query<Usuario> query = sessionFactory.getCurrentSession().createQuery(QUERY2,Usuario.class);
 		query.setParameter(1, login);
-		Usuario respuesta = query.getResultList().get(0);
-		return respuesta != null;
+		List<Usuario> respuesta = query.getResultList();
+		return !respuesta.isEmpty();
 	}
 }

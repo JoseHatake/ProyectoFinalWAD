@@ -60,7 +60,7 @@ public class LogIn extends HttpServlet {
 		HttpSession sesion = request.getSession();
 		
 		Usuario usuario = usuarioBs.findByLogin(login, pass);
-		if (usuario != null) {
+		if (!usuario.esNuevoUsuario(usuario)) {
 			sesion.setAttribute("Usuario", usuario);
 			redireccion = request.getContextPath() + "/KitchenSink/index.html";
 		}

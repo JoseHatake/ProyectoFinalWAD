@@ -29,6 +29,10 @@ public class Usuario {
 
 	@Column(name = "tx_segundo_ap")
 	private String segundoApellido;
+	
+	public Boolean esNuevoUsuario(Usuario usuario){
+		return usuario.equals(new Usuario());
+	}
 
 	/**
 	 * @return the id

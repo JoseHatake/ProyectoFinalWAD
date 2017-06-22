@@ -37,7 +37,6 @@ public class FiltroSesion implements Filter {
 		
 		usuario = (Usuario) sesion.getAttribute("Usuario");
 		if (usuario != null){
-			System.out.println("Usuario: " + usuario);
 			chain.doFilter(request, response);
 		}
 		else{

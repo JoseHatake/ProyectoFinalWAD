@@ -5,14 +5,16 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
-import mx.ipn.escom.wad.duml.accesoDB.dao.DiagramaDao;
+import mx.ipn.escom.wad.duml.accesoDB.bs.DiagramaBs;
 import mx.ipn.escom.wad.duml.accesoDB.mapeo.Diagrama;
 import mx.ipn.escom.wad.duml.accesoDB.mapeo.Usuario;
 /**
@@ -22,6 +24,9 @@ import mx.ipn.escom.wad.duml.accesoDB.mapeo.Usuario;
 public class GuardarDiagrama extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
+	@Autowired
+	private DiagramaBs diagramaBS;
+	
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -29,6 +34,15 @@ public class GuardarDiagrama extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
+    
+    /**
+	 * @see Servlet#init(ServletConfig)
+	 */
+	@Override
+	public void init(ServletConfig config) throws ServletException {
+		super.init(config);
+		SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this, getServletContext());
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -45,28 +59,21 @@ public class GuardarDiagrama extends HttpServlet {
 		HttpSession misession= (HttpSession) request.getSession();
 		Usuario user  = (Usuario) misession.getAttribute("Usuario");
 		
-		String nombre=request.getParameter("nombre");
+		String nombre = request.getParameter("nombre");
+		String datos = request.getParameter("datos");
+		Integer idEmpresa = Integer.parseInt( request.getParameter("id_empresa"));
 		
-		String datos=request.getParameter("datos");
-
+		String ruta=user.getLogin()+"/"+idEmpresa+"/"+nombre+".txt";
+		String rutaC="../DUML/src/main/webapp/KitchenSink/archivos/"+ruta;
 		
-		String ruta=user.getLogin()+"/"+user.getNombre()+"/"+nombre+".txt";
-		String rutaC="../DUML/src/main/webapp/KitchenSink/archivos/"+ruta;		
-		DiagramaDao diagramaDao = new DiagramaDao();
-		
-		SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(diagramaDao,
-				getServletConfig().getServletContext());
-		
-		Diagrama diagrama = new Diagrama();
-		
-		diagrama.setIdEmpresa(1);
-		diagrama.setIdUsuario(user.getId());
-		diagrama.setNombre(nombre);
-		diagrama.setPath(rutaC);
-		
-		
-		
-		diagramaDao.save(diagrama);		
+		if (!diagramaBS.existeDiagrama(idEmpresa, user.getId(), nombre)) {
+			Diagrama diagrama = new Diagrama();
+			diagrama.setIdEmpresa(idEmpresa);
+			diagrama.setIdUsuario(user.getId());
+			diagrama.setNombre(nombre);
+			diagrama.setPath(rutaC);
+			diagramaBS.save(diagrama);	
+		}
 		
 		writeToFile(rutaC, datos);
 		
