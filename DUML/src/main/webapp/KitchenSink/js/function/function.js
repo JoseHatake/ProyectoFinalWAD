@@ -65,12 +65,14 @@ function f_obtenerDiagramas() {
         return;
     }
     $.ajax({
-        url : 'leerDiagramas',
+        url : 'ObtenerDiagrama',
         data : {"id_empresa":empresas} ,
         type : 'POST',
         success : function(response) {
-            console.log(response);
+            /*console.log(response);
             app.graph.fromJSON(JSON.parse(response));
+*/
+            $("#diagramas").append(response);
 
             alert("Exitoso");
         },
@@ -83,13 +85,40 @@ function f_obtenerDiagramas() {
             alert('Petición realizada');
         }
     });
-
-
-
-
-
-
 }
+
+
+
+function f_leerDiagrama() {
+    var empresas = $("#empresas").val();
+    var diagrama = $("#diagramas").val();
+
+    if(empresas=='' || diagrama==''){
+        return;
+    }
+    $.ajax({
+        url : 'LeerDiagrama',
+        data : {"id_empresa":empresas,"id_diagrama":diagrama} ,
+        type : 'POST',
+        success : function(response) {
+            console.log(response);
+             app.graph.fromJSON(JSON.parse(response));
+
+
+
+            alert("Exitoso");
+        },
+
+        error : function(xhr, status) {
+            alert('Disculpe, existió un problema');
+        },
+
+        complete : function(xhr, status) {
+            alert('Petición realizada');
+        }
+    });
+}
+
 
 function f_guardar() {
     var aux=app.graph.toJSON();

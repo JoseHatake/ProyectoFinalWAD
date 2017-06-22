@@ -59,7 +59,7 @@ public class LeerDiagrama extends HttpServlet {
 		
 		HttpSession misession= (HttpSession) request.getSession();
 		Usuario user  = (Usuario) misession.getAttribute("Usuario");
-		Integer idDiagrama=Integer.parseInt(request.getParameter("idDiagrama"));
+		Integer idDiagrama=Integer.parseInt(request.getParameter("id_diagrama"));
 		Diagrama diagrama=diagramaBs.findById(idDiagrama);
 		
 		//String ruta="../DUML/src/main/webapp/KitchenSink/archivos/"+user.getLogin()+"/"+user.getNombre()+"/nombre.txt";

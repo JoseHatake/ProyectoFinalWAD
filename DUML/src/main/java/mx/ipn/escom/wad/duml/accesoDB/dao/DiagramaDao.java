@@ -16,7 +16,7 @@ public class DiagramaDao {
 	@Autowired
 	private SessionFactory sessionFactory;
 	
-	protected String Query1 ="select a from Diagrama a where idUsuario=$1 and idEmpresa=$2";
+	protected String Query1 ="select a from Diagrama a where idUsuario=?1 and idEmpresa=?2";
 	
 	public Diagrama save(Diagrama diagrama){
 		System.out.println("Entro ---->" + diagrama.toString());
@@ -42,6 +42,8 @@ public class DiagramaDao {
 		Query<Diagrama> query=sessionFactory.getCurrentSession().createQuery(Query1, Diagrama.class);
 		query.setParameter(1, idUsuario);
 		query.setParameter(2, idEmpresa);
+		
+		System.out.println(query);
 		return query.getResultList();
 	}
 

@@ -47,6 +47,9 @@ public class GuardarDiagrama extends HttpServlet {
 		
 		String nombre=request.getParameter("nombre");
 		
+		String datos=request.getParameter("datos");
+
+		
 		String ruta=user.getLogin()+"/"+user.getNombre()+"/"+nombre+".txt";
 		String rutaC="../DUML/src/main/webapp/KitchenSink/archivos/"+ruta;		
 		DiagramaDao diagramaDao = new DiagramaDao();
@@ -60,7 +63,13 @@ public class GuardarDiagrama extends HttpServlet {
 		diagrama.setIdUsuario(user.getId());
 		diagrama.setNombre(nombre);
 		diagrama.setPath(rutaC);
+		
+		
+		
 		diagramaDao.save(diagrama);		
+		
+		writeToFile(rutaC, datos);
+		
 		doGet(request, response);
 	}
 	
