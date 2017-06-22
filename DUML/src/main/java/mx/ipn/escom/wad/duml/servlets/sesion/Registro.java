@@ -74,6 +74,7 @@ public class Registro extends HttpServlet {
 		
 		if (!flag) {
 			direccion = "Login.jsp";
+			this.registrarUsuario(request);
 		}
 		else{
 			direccion = "MandaInformacion?direccion=Registro.jsp&opt=1";
