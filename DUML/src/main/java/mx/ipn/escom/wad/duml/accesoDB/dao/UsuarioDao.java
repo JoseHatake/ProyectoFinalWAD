@@ -16,6 +16,7 @@ public class UsuarioDao {
 	private SessionFactory sessionFactory;
 	
 	protected String QUERY1 = "select a from Usuario a where login = ?1 and password = ?2";
+	protected String QUERY2 = "select a from Usuario a where login = ?1";
 	
 	public Usuario save(Usuario usuario){
 		sessionFactory.getCurrentSession().save(usuario);
@@ -42,5 +43,12 @@ public class UsuarioDao {
 		query.setParameter(2, pass);
 		Usuario respuesta = query.getResultList().get(0);
 		return respuesta;
+	}
+	
+	public Boolean estaLogeado(String login){
+		Query<Usuario> query = sessionFactory.getCurrentSession().createQuery(QUERY2,Usuario.class);
+		query.setParameter(1, login);
+		Usuario respuesta = query.getResultList().get(0);
+		return respuesta != null;
 	}
 }

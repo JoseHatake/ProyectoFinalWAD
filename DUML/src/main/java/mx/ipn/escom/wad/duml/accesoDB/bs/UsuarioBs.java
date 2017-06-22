@@ -45,6 +45,11 @@ public class UsuarioBs {
 	public Usuario findByLogin(String login, String pass){
 		return usuarioDao.findByLogin(login, pass);
 	}
+	
+	@Transactional(readOnly = true)
+	public Boolean estaLogeado(String login){
+		return usuarioDao.estaLogeado(login);
+	}
 
 	/**
 	 * @return the usuarioDao

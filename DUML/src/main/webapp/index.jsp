@@ -25,13 +25,6 @@
 	<div>
 		<img alt="Hola" src="img/fondo.jpg" width="100%">
 	</div>
-	<div class="card" style="width: 20rem;">
-		<div class="col-md-offset-4">
-			<div class="jumbotron text-center" style="background-color: #6ADFC4;">
-				<h2>DUML</h2>
-			</div>
-		</div>
-	</div>
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

@@ -3,6 +3,7 @@ package mx.ipn.escom.wad.duml.servlets.sesion;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -64,6 +65,25 @@ public class Registro extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String login,direccion;
+		Boolean flag;
+		RequestDispatcher dispatcher;
+		
+		login = request.getParameter("login");
+		flag = usuarioBs.estaLogeado(login);
+		
+		if (!flag) {
+			direccion = "Login.jsp";
+		}
+		else{
+			direccion = "MandaInformacion?direccion=Registro.jsp&opt=1";
+			request.setAttribute("error", "Ese login ya esta registrado, porfavor intenta con otro.");
+		}
+		dispatcher = request.getRequestDispatcher(direccion);
+		dispatcher.forward(request, response);
+	}
+	
+	public void registrarUsuario(HttpServletRequest request){
 		Usuario usuario = new Usuario();
 		EmpresaUsuario empresaUsuario;
 		ArrayList<Empresa> empresas = new ArrayList<Empresa>();
@@ -92,7 +112,6 @@ public class Registro extends HttpServlet {
 			empresaUsuario.setUsuarioObj(usuario);
 			empresaUsuarioBs.save(empresaUsuario);
 		}
-		response.sendRedirect("Login.jsp");
 	}
 
 	public ArrayList<Empresa> getEmpresas(String[] empresasSelect){

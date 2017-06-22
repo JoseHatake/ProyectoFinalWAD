@@ -15,6 +15,9 @@
 	<script type="text/javascript" src="js/cargaEmpresas.js"></script>
 </head>
 <body>
+	<%
+		String error = (String)request.getAttribute("error");
+	%>
 	<header class="card" style="width: 100%;">
 		<div class="col-md-offset-0">
 			<div class="jumbotron text-center" style="background-color: #6ADFC4;">
@@ -47,6 +50,7 @@
 							%>
 						<label><%=empresa.getNombre()%></label>
 						<input type="checkbox" name="empresa" value="<%=empresa.getId()%>">
+						<br>
 							<%
 						}
 					%>
@@ -54,6 +58,13 @@
 				<button type="submit" class="btn btn-primary">Registrarme</button>
 			</form>
 			<a href="Login.jsp">Login</a>
+			<%
+				if(error != null && !error.equals("")){
+					%>
+					<h4 style="color: red;"><%=error%></h4>
+					<%
+				}
+			%>
 		</div>
 	</div>
 	<div class="col-md-4"></div>
