@@ -66,7 +66,7 @@ public class GuardarDiagrama extends HttpServlet {
 		String ruta=user.getLogin()+"/"+user.getNombre()+"/"+nombre+".txt";
 		String rutaC="../DUML/src/main/webapp/KitchenSink/archivos/"+ruta;
 		
-		if (!diagramaBS.existeDiagrama(idEmpresa, nombre)) {
+		if (!diagramaBS.existeDiagrama(idEmpresa, user.getId(), nombre)) {
 			Diagrama diagrama = new Diagrama();
 			diagrama.setIdEmpresa(idEmpresa);
 			diagrama.setIdUsuario(user.getId());

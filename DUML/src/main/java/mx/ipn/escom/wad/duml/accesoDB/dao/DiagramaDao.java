@@ -17,7 +17,7 @@ public class DiagramaDao {
 	private SessionFactory sessionFactory;
 	
 	protected String QUERY1 = "select a from Diagrama a where idUsuario = ?1 and idEmpresa = ?2";
-	protected String QUERY2 = "select a.from Diagrama a where idEmpresa = ?1 and nombre = ?2";
+	protected String QUERY2 = "select a.from Diagrama a where idEmpresa = ?1 and idUsuario = ?2 and nombre = ?3";
 	
 	public Diagrama save(Diagrama diagrama){
 		System.out.println("Entro ---->" + diagrama.toString());
@@ -48,10 +48,11 @@ public class DiagramaDao {
 		return query.getResultList();
 	}
 	
-	public Boolean existeDiagrama(Integer idEmpresa, String nombre){
+	public Boolean existeDiagrama(Integer idEmpresa, Integer idUsuario ,String nombre){
 		Query<Diagrama> query = sessionFactory.getCurrentSession().createQuery(QUERY2, Diagrama.class);
 		query.setParameter(1, idEmpresa);
-		query.setParameter(2, nombre);
+		query.setParameter(2, idUsuario);
+		query.setParameter(3, nombre);
 		List<Diagrama> respuesta = query.getResultList();
 		return !respuesta.isEmpty();
 	}

@@ -50,8 +50,8 @@ public class DiagramaBs {
 	}
 	
 	@Transactional(readOnly = true)
-	public Boolean existeDiagrama(Integer idEmpresa, String nombre){
-		return diagramaDao.existeDiagrama(idEmpresa, nombre);
+	public Boolean existeDiagrama(Integer idEmpresa, Integer IdUsuario,String nombre){
+		return diagramaDao.existeDiagrama(idEmpresa, IdUsuario, nombre);
 	}
 
 
